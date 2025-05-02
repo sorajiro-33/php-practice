@@ -17,11 +17,11 @@ $today = date("Y年m月d日 H時i分s秒");
 echo '現在時刻は、' .$today. 'です。'
 
 
-// Q4 条件分岐-1 if文
+// Q4 条件分岐-1 if文 * if else 1個ずつ出す
 $device = 'windows';
 
-if ($device === 'windows') {
-    echo '使用OSは、windowsです。';
+if ($device === 'windows' || $device === 'mac') {
+    echo '使用OSは、windowsです。' || '使用OSは、macです。';
 } else {
     if($device === 'mac') {
     echo '使用OSは、macです。';
@@ -30,18 +30,24 @@ if ($device === 'windows') {
     }
 }
 
+・パターン2
+$device = 'windows';
 
-// Q5 条件分岐-2 三項演算子
+if ($device == 'windows' || $device == 'mac') {
+    echo $message = ($device === 'windows') ? '使用OSは、windowsです。' : '使用OSは、macです。';}
+    else {
+    echo 'どちらでもありません。'; 
+    }
+
+
+// Q5 条件分岐-2 三項演算子　　if文禁止
 $age = 20;
-if ($age >= 18) {
-    $message = '成人です。';
-} else {
-    $message = '未成年です。';
-}
+$message = ($age >= 18) ? '成人です。' : '未成年です。';
+
 echo $message;
 
 
-// Q6 配列
+// Q6 配列 *
 $prefectures = [
            '東京都', 
            '神奈川県', 
@@ -94,30 +100,31 @@ foreach($city as $ken => $kencho){
 }
 
 
-// Q9 連想配列-3
+// Q9 連想配列-3 *　　奈良県、滋賀県を追加する
 $city = [
-    '東京都'=>'新宿区',
-    '神奈川県'=>'横浜市',
-    '千葉県'=>'千葉市',
-    '埼玉県'=>'さいたま市',
-    '栃木県'=>'宇都宮市',
-    '群馬県'=>'前橋市',
-    '茨城県'=>'水戸市',
-    '奈良県'=>'奈良市',
-    '滋賀県'=>'大津市'
+  '東京都'=>'新宿区',
+  '神奈川県'=>'横浜市',
+  '千葉県'=>'千葉市',
+  '埼玉県'=>'さいたま市',
+  '栃木県'=>'宇都宮市',
+  '群馬県'=>'前橋市',
+  '茨城県'=>'水戸市'
 ];
 
+$city['奈良県'] = '奈良市';
+$city['滋賀県'] = '大津市'; 
+
 foreach($city as $ken => $kencho){
-    if ($ken === '東京都' || 
-        $ken === '神奈川県' ||
-        $ken === '千葉県' ||
-        $ken === '埼玉県' ||
-        $ken ==='栃木県' ||
-        $ken ==='群馬県' ||
-        $ken ==='茨城県'){
-    echo $ken.'の県庁所在地は'.$kencho.'です。',"\n";
-    } else {
-    echo $ken.'は関東地方ではありません。',"\n";
+  if ($ken === '東京都' || 
+      $ken === '神奈川県' ||
+      $ken === '千葉県' ||
+      $ken === '埼玉県' ||
+      $ken ==='栃木県' ||
+      $ken ==='群馬県' ||
+      $ken ==='茨城県'){
+  echo $ken.'の県庁所在地は'.$kencho.'です。',"\n";
+  } else {
+  echo $ken.'は関東地方ではありません。',"\n";
 }    
 }
 
@@ -131,7 +138,7 @@ sayHi('山中');
 sayHi('野村');
 
 
-// Q11 関数-2
+// Q11 関数-2 *
 function calcTaxInPrice($price){ 
     $taxInPrice = "$price" * 1.10; 
     echo  $price. '円の商品の税込価格は' .$taxInPrice. '円です。';

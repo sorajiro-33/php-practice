@@ -1,5 +1,5 @@
 <?php
-// Q1 tic-tac問題
+// Q1 tic-tac問題 *　　初期値100以下か確認して処理
 for ($i = 1; $i <= 100; $i++) {
   if ($i % 20 == 0) {
       echo 'tic-tac', "\n";
@@ -60,7 +60,7 @@ foreach ($personalInfos as $x => $y) {
 }
 
 
-・問題3
+・問題3 *
 $personalInfos = [
   [
       'name' => 'Aさん',
@@ -88,7 +88,7 @@ foreach($ageList as $key => & $value){
 $personalInfos[$key]["age"] = $value;
 }
 
-// Q3 オブジェクト-1
+// Q3 オブジェクト-1 *
 class Student
 {
     public $studentId;
@@ -109,7 +109,7 @@ $Yamanaka = new Student('32', '山中');
 echo '学籍番号'.$Yamanaka->studentId.'番の生徒は'.$Yamanaka->studentName.'です。';
 
 
-// Q4 オブジェクト-2
+// Q4 オブジェクト-2 *
 class Student
 {
     public $studentId;
@@ -130,7 +130,7 @@ $Yamanaka = new Student('32', '山中');
 $Yamanaka -> attend('PHP');
 
 
-// Q5 定義済みクラス
+// Q5 定義済みクラス *
 ・問題1
 date_default_timezone_set('JAPAN');
 $date = new DateTime();
